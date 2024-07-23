@@ -43,6 +43,7 @@ else :
 for i in 1,2,3,4 :
     x = 0.25*i
     print(x)
+    #%%
     
 import numpy as np
 import matplotlib.pyplot as pl
@@ -55,6 +56,7 @@ print(a)
 for i in range(0, len(a), 1) :
     a[i]=i*0.5
 print(a)
+#%%
 
 #numpy.linspace(start,stop,num=50,endpoint=True,retstep=False,dtype=None,axis=0)
 #시작점과 끝점 사이를 균등하게 나눈 값을 포함하는 배열을 만듦
@@ -64,12 +66,13 @@ print(a)
 #dtype: 반환할 배열의 데이터 타입
 x,dx = np.linspace(-1.,3.,7,retstep=True) # i=1,...,7 vertices -1<xi<3
 print('여기가 linspace')
-
+#%%
 print(x)
 #dx=x[1]-x[0]
 print('dx는 샘플간의 간격')
 print(dx)
 
+#%%
 y=np.zeros_like(x) #array of zeros with the same shape as x
 z=np.zeros_like(x)
 for i in range(0,len(x),1) :
@@ -79,6 +82,7 @@ z=x**3-5
 print(z)
 z[::2]=0*x[::2]
 print(z)
+#%%
 
 pl.plot(x,y,'o-',label='my data')
 pl.legend()
