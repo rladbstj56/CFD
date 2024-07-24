@@ -51,9 +51,13 @@ print('result is %1.3f' %Gresult100)
 
 #3
 #(b),(c)
+
+import numpy as np
+import matplotlib.pyplot as pl
+
 def fderiv(n): # f derivative function
     if n == 0:
-        return np.exp(-1)
+        return 1
     else: 
         return -2*fderiv(n-1)
 
@@ -70,10 +74,10 @@ def fact(n):
     return factresult
 
 def taylor(x,N):
-    result = 0
+    taylor_approx = np.zeros_like(x)
     for n in range(0,N+1):
-        result += ((1/fact(n))*fderiv(n)*(x+0.5)**n)
-    return result
+        taylor_approx += ((1/fact(n))*fderiv(n)*(x+0.5)**n)
+    return taylor_approx
 
 # 오차 계산 함수
 def calculate_errors(x, actual, approx):
