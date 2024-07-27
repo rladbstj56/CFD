@@ -18,8 +18,9 @@ h = 10**(-2)
 #x = i*h
 x = np.linspace(-5,5,N)
 
-pl.plot(x, g(x), label = 'g(x)')
+pl.plot(x, g(x), 'b', label = 'g(x)')
 #pl.xlim(-5,5)
+#pl.legend()
 #pl.grid()
 #pl.show()
 
@@ -33,17 +34,18 @@ import matplotlib.pyplot as pl
 def g1_cal(x, mu = 0.3, sigma = 1.2):
     return -(x-mu)/sigma**2*g(x)
 #pl.figure(1)
-pl.plot(x, g1_cal(x), label = 'g1_cal(x)')
+pl.plot(x, g1_cal(x), 'r-', label = 'g1_cal(x)')
 #pl.legend()
 #pl.grid()
 
 # (c)
 
 def g1(x):
-    return (g(x+h)-g(x-h))/(2*h)
+    dx = x[1] - x[0]
+    return (g(x+dx)-g(x-dx))/(2*dx)
 #pl.figure(2)
 x_ghost = x[1:N-1]
-pl.scatter(x_ghost, g1(x_ghost), label = 'g1(x)', s = 3)
+pl.plot(x_ghost, g1(x_ghost), 'g--', label = 'g1(x)')
 #pl.legend()
 #pl.grid()
 
@@ -56,7 +58,7 @@ pl.scatter(x_ghost, g1(x_ghost), label = 'g1(x)', s = 3)
 def g2_cal(x, mu = 0.3, sigma = 1.2):
     return -g(x)/sigma**2-(x-mu)/sigma**2*g1(x)
 
-pl.plot(x, g2_cal(x), label = 'g2_cal(x)')
+pl.plot(x, g2_cal(x), color = 'coral', label = 'g2_cal(x)')
 
 # (e)
 
@@ -64,7 +66,7 @@ def g2(x):
     return (g1(x+h)-g1(x-h)) / (2*h)
 
 x_2ghost = x[2:N-2]
-pl.scatter(x_2ghost, g2(x_2ghost), label = 'g2(x)', s = 3)
+pl.plot(x_2ghost, g2(x_2ghost), color = 'mediumslateblue', linestyle = '--', label = 'g2(x)')
 
 pl.legend()
 pl.grid()
