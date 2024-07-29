@@ -12,8 +12,8 @@ print(x)
 
 #(c)
 delta_x = 0.025
-N = int(1/delta_x)+1 #1:total length(L)
-x = np.linspace(0,1,N)
+N = int(1/delta_x)+1 # 1:total length(L)
+x = np.linspace(0,1,N) # 양쪽 0과 1까지 카운트하므로 N
 print(x)
 
 #(d)
@@ -34,13 +34,14 @@ print(y1)
 print(y2)
 print(y3)
 print('여기까지가 print')
+pl.figure()
 pl.plot(x,y1,label='y=f1(x)')
 pl.plot(x,y2,label='y=f2(x)')
 pl.plot(x,y3,label='y=f3(x)')
 pl.legend()
 
 #(e)
-pl.title(f'Figure 1')
+pl.title('Figure 1')
 pl.xlabel('x')
 pl.ylabel('y')
 pl.xlim(0,1)
@@ -51,6 +52,7 @@ pl.show()
 
 
 #(f)
+pl.figure()
 pl.plot(x,y3,label='f3(x) additional task')
 pl.xlim(0,0.5)
 pl.ylim(-1.2,1.2)
