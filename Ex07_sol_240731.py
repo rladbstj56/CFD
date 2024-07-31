@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Jul 31 09:25:06 2024
+Created on Wed Jul 31 13:22:21 2024
 
 @author: 김윤서
 """
@@ -70,9 +70,9 @@ while t < tEnd:
 # 1 
 # (a), (b), (c)
 
-x = np.array(xa)
-y = np.array(ya)
-z = np.array(za)
+x = np.array(xa[:40001])
+y = np.array(ya[:40001])
+z = np.array(za[:40001])
 
 print("This is N = ", N)
 print("This is length", len(xa), len(ya), len(za), len(x), len(y), len(z))
@@ -210,16 +210,110 @@ def first(x):
 def last(x):
     return x[-firstrange:]
 
-print("mean : ", meanx, mean(first(x)), mean(last(x)))
-print("mean : ", meany, mean(first(y)), mean(last(y)))
-print("mean : ", meanz, mean(first(z)), mean(last(z)))
+t = np.arange(tStart, tEnd + dt, dt) # pdf에 적힌 방법
+
+print("mean : ", meanx, mean(first(x)), mean(x[t<5]), mean(last(x)), mean(x[t>35]))
+print("mean : ", meany, mean(first(y)), mean(y[t<5]), mean(last(y)), mean(x[t>35]))
+print("mean : ", meanz, mean(first(z)), mean(z[t<5]), mean(last(z)), mean(x[t>35]))
 
 
 print("dev : ", deviation(x), deviation(first(x)), deviation(last(x)))
+print(deviation(x[t<5]), deviation(x[t>35]))
 print("dev : ", deviation(y), deviation(first(y)), deviation(last(y)))
 print("dev : ", deviation(z), deviation(first(z)), deviation(last(z)))
 
 
+# 6
 
+boundary_list = [(-8., -1., 33.), (-2., -10., 45.)]
 
+for l in boundary_list:
+    x0 = l[0]
+    y0 = l[1]
+    z0 = l[2]
+    
+    xa = [x0]
+    ya = [y0]
+    za = [z0]
+    
+    t = tStart
+    
+    x = x0
+    y = y0
+    z = z0
+    
+    while t < tEnd:
+        xn = x + dt*s*(y-x)
+        yn = y + dt*((r-z)*x-y)
+        zn = z + dt*(x*y-b*z)
+        
+        xa.append(xn)
+        ya.append(yn)
+        za.append(zn)
+        
+        x = xn
+        y = yn
+        z = zn
+        t += dt
 
+    x = np.array(xa)
+    y = np.array(ya)
+    z = np.array(za)
+    
+    print(l)
+    print("mean x : ", mean(x))
+    print("mean y : ", mean(y))
+    print("mean z : ", mean(z))
+    print("\n")
+    print("std x : ", deviation(x))
+    print("std y : ", deviation(y))
+    print("std z : ", deviation(z))
+    print("\n")
+    
+    
+# 7
+
+boundary_list = [(8./3., 28., 10.), (5., 15., 15.)]
+
+for l in boundary_list:
+    b = l[0]
+    r = l[1]
+    s = l[2]
+    
+    xa = [x0]
+    ya = [y0]
+    za = [z0]
+    
+    t = tStart
+    
+    x = x0
+    y = y0
+    z = z0
+    
+    while t < tEnd:
+        xn = x + dt*s*(y-x)
+        yn = y + dt*((r-z)*x-y)
+        zn = z + dt*(x*y-b*z)
+        
+        xa.append(xn)
+        ya.append(yn)
+        za.append(zn)
+        
+        x = xn
+        y = yn
+        z = zn
+        t += dt
+
+    x = np.array(xa)
+    y = np.array(ya)
+    z = np.array(za)
+    
+    print(l)
+    print("mean x : ", mean(x))
+    print("mean y : ", mean(y))
+    print("mean z : ", mean(z))
+    print("\n")
+    print("std x : ", deviation(x))
+    print("std y : ", deviation(y))
+    print("std z : ", deviation(z))
+    print("\n")
