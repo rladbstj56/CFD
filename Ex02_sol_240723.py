@@ -84,10 +84,10 @@ def calculate_errors(x, actual, approx):
     return np.abs(actual - approx)
 
 x = np.linspace(-1, 4, 100) # 100은 random number # it nees to be big enough
-y0 = taylor(x,0)
-y1 = taylor(x,1)
-y2 = taylor(x,2)
-y3 = taylor(x,3)
+#y0 = taylor(x,0)
+#y1 = taylor(x,1)
+#y2 = taylor(x,2)
+#y3 = taylor(x,3)
 y4 = taylor(x,4)
 F = f(x)
 
@@ -99,14 +99,15 @@ minerror_x = x[minerrind]
 maxerrorvalue = errors[maxerrind] # 가장 큰 오차 값
 minerrorvalue = errors[minerrind]
 
-print(y0)
-print(y1)
-print(y2)
-print(y3)
+#print(y0)
+#print(y1)
+#print(y2)
+#print(y3)
 print(y4)
 
 #for i in range (1,22,3):
 #    pl.plot(x,taylor(x,i), label="TaylorN (N = %i)" %i)
+pl.figure()
 pl.plot(x,y4, label="Taylor Series 4")
 pl.plot(x,F, label="ReferenceFunction")
 pl.legend() # 범례 (이름, 라벨)
@@ -115,6 +116,7 @@ pl.show()
 
 
 # 확대된 플롯
+pl.figure()
 pl.plot(x,y4, label="Taylor Series 4")
 pl.plot(x,F, label="ReferenceFunction")
 pl.xlim(-1.0,1.0)

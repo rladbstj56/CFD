@@ -5,12 +5,12 @@ import numpy as np
 
 def sigma(a,b):
     val = 0
-    for i in range(a,b+1): #b is exclusive
-        val = val + i
+    for i in range(a,b+1): # b+1 is exclusive (a, ,b)
+        val += i
     return val
 
 N = 100
-d = 2.0 * 10 ** (-4)
+d = 2.e-4
 sum = sigma(0,N) * d
 print(sum)
 
@@ -24,11 +24,11 @@ GP = gauss(d,N)
 print(GP)
 
 if sum > GP :
-    print("Sum is bigger, %f" %sum)
+    print("Sum is bigger ", sum)
 elif sum == GP :
-    print("They are same, %f" %sum)
+    print("They are same ", sum)
 else :
-    print("Gauss' product is bigger, %f" %GP)
+    print("Gauss' product is bigger ", GP)
     
 #(c)
 print(repr(sum))
@@ -37,8 +37,8 @@ print(repr(GP))
 #차이가 있어야하는거 아닌가
 
 #2
-#What is the definition of the Taylor series of a function f(x) around a point x0?
-#The Taylor series of a function f(x) around a point x0 is an infinite series that represents f(x) as a sum of its derivatives at x0.
+# What is the definition of the Taylor series of a function f(x) around a point x0?
+# The Taylor series of a function f(x) around a point x0 is an infinite series that represents f(x) as a sum of its derivatives at x0.
 
 #%%
 
@@ -59,7 +59,7 @@ x0 = -0.5
 def taylorf(x):
     return taylorsigma(0,4,x,x0)
 
-x_values = [i for i in range(-1,4)] #x값 범위
+x_values = [i for i in range(-1,4)] # x값 범위
 y_values = [taylorf(x) for x in x_values]
 
 import matplotlib.pyplot as pl
