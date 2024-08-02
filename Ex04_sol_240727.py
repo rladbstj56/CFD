@@ -12,7 +12,7 @@ def g(x, mu = 0.3, sigma = 1.2):
     return 1/np.sqrt(2*np.pi*(sigma)**2)*np.exp(-(x-mu)**2/(2*(sigma)**2))
 
 N = 100 # random
-x = np.linspace(-5,5,N)
+x = np.linspace(-5,5,N+1)
 dx = x[1] - x[0]
 
 y = g(x)
