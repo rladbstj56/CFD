@@ -60,6 +60,8 @@ while t < tEnd:
     xa.append(x)
     ya.append(y)
     za.append(z)
+    
+print(len(xa))
 
 
 np.savetxt('xdata.dat', xa)

@@ -36,6 +36,8 @@ for i in range(N-1):
     y[i+1] = y[i] + dt*((r-z[i])*x[i]-y[i])
     z[i+1] = z[i] + dt*(x[i]*y[i]-b*z[i])
     
+print(len(x))
+
 fig, pl2D = pl.subplots(3)
 
 pl2D[0].plot(x,z,label='x vs. z')
