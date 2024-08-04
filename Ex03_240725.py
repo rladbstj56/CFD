@@ -33,7 +33,7 @@ y = np.linspace(-1, 1, 30)
 X, Y = np.meshgrid(x, y)
 
 #(b)
-pl.scatter(X, Y, color='b')
+#pl.scatter(X, Y, color='b')
 pl.show()
 
 
@@ -45,10 +45,11 @@ import matplotlib.pyplot as pl
 nx = int(input("Enter the number of cells in the x direction : "))
 ny = int(input("Enter the number of cells in the y direction : "))
 
+
 x = np.linspace(0, 4, nx)
 y = np.linspace(-1, 1, ny)
 X, Y = np.meshgrid(x, y)
-pl.scatter(X, Y, color = 'b')
+pl.scatter(X, Y, color = 'green', alpha = 0.5)
 pl.show()
 
 np.savetxt("Ex03_input_x", X, delimiter = ',')
@@ -73,7 +74,7 @@ print("It's X\n", X)
 print("It's Y\n", Y)
 
 def stretching_function(xi, a=0.99):
-    """Arg is grid coordinate that runs between 0 and 1"""
+    #Arg is grid coordinate that runs between 0 and 1
     b = 0.5 * np.log((1+a)/(1-a))
     return np.tanh(b*(xi-0.5))/np.tanh(b/2.)
 

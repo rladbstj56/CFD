@@ -6,7 +6,7 @@ import matplotlib.pyplot as pl
 N1 = 5
 N2 = 3
 N3 = 2
-
+matrix1 = np.zeros((N1,N2))
 matrix = np.zeros((N1,N2,N3)) # np.ones는 모든 요소가 1인 행렬 생성
 
 full_matrix = np.full((2, 3), 7) # (shape, fill_value) 7로 채운 행렬 생성

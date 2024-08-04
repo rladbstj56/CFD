@@ -5,9 +5,8 @@ Created on Fri Aug  2 11:19:41 2024
 @author: 김윤서
 """
 
-import numpy as np
-import matplotlib.pyplot as plt
-import numpy.random as rnd
+#import numpy as np
+#import matplotlib.pyplot as plt
 
 # 1
 
@@ -66,9 +65,19 @@ plt.show()
 
 """
 
-a = 0.99
-b = 1/2*np.log((1+a)/(1-a))
-y = np.tanh(b*(y-1/2))/np.tanh(b/2)
+y = np.linspace(-1, 1, 10)
+
+def stretched(x):
+    a = 0.99
+    b = 1/2*np.log((1+a)/(1-a))
+    
+    return np.tanh(b*(x-1/2))/np.tanh(b/2)
+
+xi = np.linspace(0., 1., len(y))
+
+x = np.linspace(0.,4.,5)
+y = stretched(xi)
+    
 xv_stretched, yv_stretched = np.meshgrid(x,y)
 
 #plt.figure()
