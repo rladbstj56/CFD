@@ -33,9 +33,9 @@ plt.show()
 N = 50000
 exp = np.random.exponential(1.0,N) # scale = 1.0
 plt.subplot(2,1,1)
-plt.plot(exp)
+plt.plot(exp) # plot p(x)
 plt.subplot(2,1,2)
-plt.hist(exp, bins = 100, density = True)
+plt.hist(exp, bins = 100, density = True) # discrete PDF
 plt.show()
 
 

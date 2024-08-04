@@ -13,21 +13,22 @@ import matplotlib.pyplot as plt
 # 1
 
 rand1 = np.random.rand(20)
-print(rand1)
+#print(rand1)
 
 rand2 = np.random.rand(20)*8 - 3
-print(rand2)
+#print(rand2)
 
 # 2
 
 rand3 = np.random.randint(1,7,5000)
-print(rand3)
+#print(rand3)
 
+"""
 plt.figure()
 plt.hist(rand3, bins = [i for i in range(1,8)], rwidth = 0.5, align = 'left')
 plt.title('random histogram 1<=x<=6')
 plt.show()
-
+"""
 
 def mean(x):
     return sum(x)/len(x)
@@ -36,9 +37,9 @@ def std(x):
     return np.sqrt(sum((x-mean(x))**2)/len(x))
 
 mean_value = mean(rand3)
-print("mean : ", mean_value)
+#print("mean : ", mean_value)
 std_value = std(rand3)
-print("std : ", std_value)
+#print("std : ", std_value)
     
 
 # 3
@@ -58,9 +59,8 @@ for m in m_list :
     # Normalize by m to obtain random numbers in [0,1)
     xa_normalized = [num / m for num in xa]
     
-    print("length of array x : ", len(xa))
     plt.subplot(3,2,n)
-    plt.hist(xa_normalized, bins = [ i for i in range(m)], color = 'green')
+    plt.hist(xa, bins = [ i for i in range(m+1)], color = 'green')
     n += 1
 plt.show()
 
@@ -69,6 +69,7 @@ plt.show()
 
 # 4
 
+"""
 N = 50000
 exp = np.random.exponential(1.0,N) # scale = 1.0
 plt.subplot(2,1,1)
@@ -87,5 +88,6 @@ plt.show()
 
 #%%
 
+"""
 # 5
 
