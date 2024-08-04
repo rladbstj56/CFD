@@ -25,16 +25,16 @@ def g(x):
 
 y = g(x)
 
-def g1cal(x):
+def g1cal(x): # calculate analytically
     mu = 0.3
     sigma = 1.2
     return -(x-mu)/sigma**2*g(x)
 
 y1cal = g1cal(x)
 
-def g1(y,dx):
+def g1(y,dx): # numerically compute
     tmp = np.zeros_like(y)
-    tmp[1:-1] = (y[2:] - y[0:-2])/(2*dx)
+    tmp[1:-1] = (y[2:] - y[0:-2])/(2*dx) # central difference approximation
     return tmp
 
 y1 = g1(y,dx)
@@ -105,12 +105,14 @@ plt.show()
 
 #%%
 
-h_values = [1e-2, 1e-3, 1e-4, 1e-5, 1e-6, 1e-7]
+h_values = [1e-5, 1e-6, 1e-7, 1e-8]
 
 for h in h_values:
     x = np.arange(xStart, xEnd+h, h)
     dx = x[1] - x[0]
 
+    print(dx, h)
+    
     y_ = g(x)
     y1_ = g1(y_, dx)
     y1cal_ = g1cal(x)
@@ -127,3 +129,24 @@ for h in h_values:
 # is 1e-7
     
 
+#%%
+
+def g1_forward(y,dx):
+    tmp = np.zeros_like(y)
+    tmp[0:-1] = (y[1:] - y[0:-1])/dx
+    return tmp
+
+def g1_backward(y,dx):
+    tmp = np.zeros_like(y)
+    tmp[1:] = (y[1:] - y[0:-1])/dx
+    return tmp
+
+def g2_forward(y,dx):
+    tmp = np.zeros_like(y)
+    tmp[0:-2] = (y[2:] - 2*y[1:-1] + y[0:-2]) / (dx**2)
+    return tmp
+
+def g2_backward(y,dx):
+    tmp = np.zeros_like(y)
+    tmp[2:] = (y[2:] - 2*y[1:-1] + y[0:-2]) / (dx**2)
+    return tmp
