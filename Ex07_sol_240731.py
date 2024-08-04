@@ -133,8 +133,11 @@ devz_ = deviation(z)
 print("devz = ",devz,devz_)
 
 
+#%%
+
 # 3
 
+"""
 M = 200
 
 plt.figure(2)
@@ -184,7 +187,9 @@ plt.title('frequency z')
 
 plt.show()
 
+"""
 
+#%%
 
 # 4
 
