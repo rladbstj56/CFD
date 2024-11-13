@@ -20,7 +20,7 @@ source le. This is done on-the-y by the interpreter.
 commands into Spyder's Python shell. Hit enter submit a command.
 3. Numerical data operations and plotting: Using the numpy and matplotlib.pyplot mo-
 dules
-(a) Create a new Python source le (e.g. myplot.py) and open it with Spyder. Load
+(a) Create a new Python source file (e.g. myplot.py) and open it with Spyder. Load
 numpy and matplotlib.pyplot.
 (b) Create an array x with linearly increasing values [0.0, 0.1, 0.2, . . . 1.0]. The size N of
 the array should be N = 11.
@@ -67,23 +67,23 @@ T4(x;-0.5). Where does the largest and where the smallest error occur?
 5. Determine numerically the order N for which the error between f(x) and TN(x;-0.5) at x = 4 is less than 10^(-8).
 #### Hints and remarks
 * Standard libraries
-''' python
+```python
 import numpy as np
 import matplotlib.pyplot as pl
-'''
+```
 * Define a function
-''' python
+```python
 def myfunc(x):
 val = 3*(x-1.)**(1./3.)
 return val
-'''
+```
 * Call a function
-''' python
+```python
 x = myfunc(1.0)
 print( x )
-'''
+```
 * Save / show a plot
-''' python
+```python
 # generate data
 x = np.linspace(1., 2., 4)
 y = myfunc(x)
@@ -91,4 +91,4 @@ y = myfunc(x)
 pl.plot(x, y)
 pl.savefig('myfig.png') # save figure
 pl.show() # display figure
-'''
+```
